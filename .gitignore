@@ -1,0 +1,16 @@
+android/
+desktop/
+gradle/
+ios/
+build/
+target/
+.idea
+*.xml
+*.gradle
+*.properties
+*.bat
+gradlew
+*.iml
+
+
+

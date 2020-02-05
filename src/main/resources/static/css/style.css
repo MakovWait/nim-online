@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    padding: 50px 0 0;
+    font: 15px/17px Arial, sans-serif;
+}
+
+a {
+    color: #4CAF50;
+}
+
+a:hover {
+    color: #F70;
+}
+
+h1 {
+    font-size: 22px;
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 2;
+    font-weight: normal;
+    text-align: center;
+}
+
+p.logo {
+    font-size: 40px;
+    font-family: Impact, Charcoal, sans-serif;
+    line-height: 2;
+    color: #4CAF50;
+    font-weight: normal;
+    text-align: center;
+}
+
+p {
+    margin: 5px;
+    text-align: center;
+}
+
+.wrapper {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px dashed #CCC;
+    border-radius: 5px;
+}
+
+.wrapper_selected {
+    display: none;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.radio input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    margin: 10px 0 0 7px;
+}
+
+.radio__text {
+    position: relative;
+    padding: 0 0 0 35px;
+    cursor: pointer;
+}
+
+.radio__text:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #CDD1DA;
+    border-radius: 50%;
+    background: #FFF;
+}
+
+.radio__text:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #9FD468;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5);
+    opacity: 0;
+    transition: .2s;
+}
+
+.radio input:checked + .radio__text:after {
+    opacity: 1;
+}
+
+.radio input:focus + .radio__text:before {
+    box-shadow: 0 0 0 3px rgba(255, 255, 0, .7);
+}
+
+.btn {
+    padding: 12px 20px;
+    margin: 0 15px 0 0;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn_hide {
+    display: none;
+}
+
+.btn--green {
+    background: #4CAF50;
+}
+
+.btn--green:active {
+    background: #4CAF50;
+}
+
+.btn--red {
+    background: #FF0000;
+}
+
+.btn--red:active {
+    background: #FF7700;
+}
+
+.btn:hover {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 0, .7);
+}
+
+#players {
+     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+ }
+
+#players td, #players th {
+    padding: 8px;
+}
+
+
+#players tr:hover {
+    background-color: #9FD468;
+}
+
+#players th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#games {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#games td, #games th {
+    padding: 8px;
+}
+
+
+.tr_red {
+    background-color: #FF7700;
+}
+
+.tr_green {
+    background-color: #9FD468;
+}
+
+#games th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    border: 1px solid #ddd;
+}
+
+ul li {
+    padding: 8px 16px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+ul li:last-child {
+    border-bottom: none
+}
+
+li:hover {
+    background-color: #9FD468;
+}
+
+.question {
+    font-size: 20px;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.overlay-loader {
+    display: none;
+    margin: auto;
+    position: center;
+}
+
+.overlay-loader_selected {
+    display: block;
+}
+
+.loader {
+    position: center;
+    margin: auto;
+    width: 97px;
+    height: 97px;
+    animation-name: rotateAnim;
+    -o-animation-name: rotateAnim;
+    -ms-animation-name: rotateAnim;
+    -webkit-animation-name: rotateAnim;
+    -moz-animation-name: rotateAnim;
+    animation-duration: 0.4s;
+    -o-animation-duration: 0.4s;
+    -ms-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.4s;
+    -moz-animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+.loader div {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid rgb(76, 175, 80);
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.loader div:nth-child(odd) {
+    border-top: none;
+    border-left: none;
+}
+
+.loader div:nth-child(even) {
+    border-bottom: none;
+    border-right: none;
+}
+
+.loader div:nth-child(2) {
+    border-width: 2px;
+    left: 0px;
+    top: -4px;
+    width: 12px;
+    height: 12px;
+}
+
+.loader div:nth-child(3) {
+    border-width: 2px;
+    left: -1px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+}
+
+.loader div:nth-child(4) {
+    border-width: 3px;
+    left: -1px;
+    top: -4px;
+    width: 23px;
+    height: 23px;
+}
+
+.loader div:nth-child(5) {
+    border-width: 3px;
+    left: -1px;
+    top: 4px;
+    width: 31px;
+    height: 31px;
+}
+
+.loader div:nth-child(6) {
+    border-width: 4px;
+    left: 0px;
+    top: -4px;
+    width: 39px;
+    height: 39px;
+}
+
+.loader div:nth-child(7) {
+    border-width: 4px;
+    left: 0px;
+    top: 6px;
+    width: 49px;
+    height: 49px;
+}
+
+@keyframes rotateAnim {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@-o-keyframes rotateAnim {
+    from {
+        -o-transform: rotate(360deg);
+    }
+    to {
+        -o-transform: rotate(0deg);
+    }
+}
+
+@-ms-keyframes rotateAnim {
+    from {
+        -ms-transform: rotate(360deg);
+    }
+    to {
+        -ms-transform: rotate(0deg);
+    }
+}
+
+@-webkit-keyframes rotateAnim {
+    from {
+        -webkit-transform: rotate(360deg);
+    }
+    to {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@-moz-keyframes rotateAnim {
+    from {
+        -moz-transform: rotate(360deg);
+    }
+    to {
+        -moz-transform: rotate(0deg);
+    }
+}
+
+.game-board {
+    display: none;
+}
+
+.game-board_selected {
+    display: block;
+}
+
+#turn td {
+    display: table-cell;
+    position: relative;
+    width: 18px;
+    height: 41px;
+    background: url(images/tel.png) no-repeat transparent;
+}
+
+#turn td.selected {
+    -webkit-animation: 0.2s tremor ease-out infinite;
+    /*filter: drop-shadow(0px 0px 20px red);*/
+    /*filter: invert(100%);*/
+    filter: opacity(50%);
+    animation: 0.2s tremor ease-out infinite;
+}
+
+@-webkit-keyframes tremor {
+    0%, 25% {
+        left: -1px;
+        top: -1px;
+        -webkit-transform: translateX(-4%);
+        transform: translateX(-4%);
+    }
+    50%, 100% {
+        left: 1px;
+        top: 1px;
+        -webkit-transform: translateX(4%);
+        transform: translateX(4%);
+    }
+}
+
+@-moz-keyframes tremor {
+    0%, 25% {
+        left: -1px;
+        -webkit-transform: translateX(-4%);
+        transform: translateX(-4%);
+    }
+    50%, 100% {
+        left: 1px;
+        -webkit-transform: translateX(4%);
+        transform: translateX(4%);
+    }
+}
+
+@-ms-keyframes tremor {
+    0%, 25% {
+        left: -1px;
+        -webkit-transform: translateX(-4%);
+        transform: translateX(-4%);
+    }
+    50%, 100% {
+        left: 1px;
+        -webkit-transform: translateX(4%);
+        transform: translateX(4%);
+    }
+}
+
+@-o-keyframes tremor {
+    0%, 25% {
+        left: -1px;
+        -webkit-transform: translateX(-4%);
+        transform: translateX(-4%);
+    }
+    50%, 100% {
+        left: 1px;
+        -webkit-transform: translateX(4%);
+        transform: translateX(4%);
+    }
+}
+
+@keyframes tremor {
+    0%, 25% {
+        left: -1px;
+        -webkit-transform: translateX(-4%);
+        transform: translateX(-4%);
+    }
+    50%, 100% {
+        left: 1px;
+        -webkit-transform: translateX(4%);
+        transform: translateX(4%);
+    }
+}

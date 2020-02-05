@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <title>Login Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script th:src="@{js/lib/js.cookie.js}"></script>
+    <script th:src="@{js/login.js}"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{css/style.css}"/>
+</head>
+
+<body>
+
+<h1>
+    <a href=""><p class="logo">Nim online</p></a>
+    <span id="account" sec:authentication="name" style="display:none"></span>
+</h1>
+
+<div class="wrapper">
+    <form id="loginform" name="loginform">
+        <p>
+            <label for="username">Никнейм: </label><input id="username" name="username" placeholder="никнейм.."/><br/>
+            <label for="password">Пароль :</label><input id="password" name="password" placeholder="пароль..." type="password"/><br/>
+        </p>
+
+        <p>
+            <button class="btn btn--green" type="submit">Вход!</button>
+        </p>
+    </form>
+</div>
+
+</body>
+
+</html>

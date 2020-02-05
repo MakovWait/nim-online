@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script th:src="@{/js/room.js}"></script>
+    <script th:src="@{js/lib/jquery.session.js}"></script>
+    <script th:src="@{js/lib/js.cookie.js}"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{css/style.css}"/>
+</head>
+
+<body>
+<h1>
+    <a href=""><p class="logo">Nim online</p></a>
+    <span id="account" sec:authentication="name" style="display:none"></span>
+<!--    <span id="timer-msg">Remaining time: <span class="time"></span></span> <br/>-->
+</h1>
+
+<div class="overlay-loader">
+    <div class="wrapper">
+        <p><span class="find-game-alert">Идет поиск боя</span></p>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <p>
+            <button class="btn btn--red stop-finding-game-button" type="button">Остановить поиск</button>
+        </p>
+    </div>
+</div>
+
+<div class="game-board">
+    <div class="wrapper">
+
+        <p id="ur-turn-msg">Твой ход</p>
+        <p id="enemy-turn-msg">Сейчас ходит противник</p>
+        <p id="win-msg">Ты победил</p>
+        <p id="loose-msg">Ты проиграл</p>
+
+        <table id="turn"></table>
+
+        <p><button id="toLobby" class="btn btn--green concede-button">Вернуться в лобби</button></p>
+    </div>
+</div>
+
+<div class="wrapper_selected">
+    <p>
+        <button class="btn btn--red concede-button">Сдаться</button>
+    </p>
+</div>
+
+</body>
+</html>

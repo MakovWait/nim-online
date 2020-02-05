@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Lobby</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script th:src="@{js/personal.js}"></script>
+    <script th:src="@{js/lib/jquery.session.js}"></script>
+    <script th:src="@{js/lib/js.cookie.js}"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{css/style.css}"/>
+</head>
+
+<body>
+
+<h1>
+    <a href=""><p class="logo">Nim online</p></a>
+    <a id="account" href="" sec:authentication="name"></a>
+</h1>
+
+<div class="wrapper">
+
+    <p>История игр</p>
+
+    <table id="games">
+        <tr>
+            <th>Имя противника</th>
+            <th>Рузультат</th>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

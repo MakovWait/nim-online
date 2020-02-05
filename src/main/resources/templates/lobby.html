@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Lobby</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script th:src="@{js/lobby.js}"></script>
+    <script th:src="@{js/lib/jquery.session.js}"></script>
+    <script th:src="@{js/lib/js.cookie.js}"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{css/style.css}"/>
+</head>
+
+<body>
+
+<h1>
+    <a href=""><p class="logo">Nim online</p></a>
+    <span class="player-name">Привет, </span>
+    <a id="account" href="" sec:authentication="name"></a>
+
+<!--    <div sec:authorize="hasAuthority('ROLE_ADMIN')">-->
+<!--        This will only be displayed if authenticated user has role ROLE_ADMIN.-->
+<!--    </div>-->
+
+<!--    <div sec:authorize-url="/game">-->
+<!--        This will only be displayed if authenticated user can call the "/admin" URL.-->
+<!--    </div>-->
+</h1>
+
+<div class="wrapper">
+
+    <p>Доска лидеров</p>
+
+    <table id="players">
+        <tr>
+            <th>Место</th>
+            <th>Псевдоним</th>
+            <th>Счет</th>
+        </tr>
+    </table>
+
+</div>
+
+<div id = "buttons" class="wrapper">
+    <p>
+        <button class="btn btn--green find-game-button">Найти игру</button>
+        <button class="btn btn--red" id="logoutButton" type="button">Выход</button>
+    </p>
+</div><!-- .wrapper -->
+
+</body>
+</html>
